@@ -1,0 +1,32 @@
+./host_inference_tsdp \
+	images/dog_224x224.jpg \
+	/data/local/3.sock \
+	/dev/io-mem-0 \
+	25 \
+	models/mobilenetv1_tsdp/mobilenetv1_0_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_1_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_2_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_3_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_4_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_5_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_6_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_7_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_8_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_9_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_10_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_11_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_12_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_13_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_14_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_15_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_16_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_17_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_18_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_19_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_20_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_21_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_22_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_23_6.rknn \
+	models/mobilenetv1_tsdp/mobilenetv1_24_6.rknn \
+	images/dog_224x224.jpg \
+	100

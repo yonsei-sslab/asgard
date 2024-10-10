@@ -1,0 +1,20 @@
+[submodule "asgard-buildroot"]
+	path = asgard-buildroot
+	url = https://github.com/yonsei-sslab/asgard-buildroot.git
+	branch = main
+[submodule "asgard-manifest-host-android"]
+	path = asgard-manifest-host-android
+	url = https://github.com/yonsei-sslab/asgard-manifest.git
+	branch = host-android
+[submodule "asgard-manifest-crosvm-android"]
+	path = asgard-manifest-crosvm-android
+	url = https://github.com/yonsei-sslab/asgard-manifest.git
+	branch = crosvm-android
+[submodule "asgard-manifest-guest-linux"]
+	path = asgard-manifest-guest-linux
+	url = https://github.com/yonsei-sslab/asgard-manifest.git
+	branch = guest-linux
+[submodule "asgard-tensorflow"]
+	path = asgard-tensorflow
+	url = https://github.com/yonsei-sslab/asgard-tensorflow.git
+	branch = main

@@ -1,0 +1,19 @@
+./host_inference_native_lite_transformer_decoder_baseline \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-1.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-1-2.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-1-3.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-1-4.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-1-5.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-4.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-6.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-7.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-2-1.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-2-2.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-2-3.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-2-4.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-2-5.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-b1-2-6.rknn \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-3.tflite \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-1-5.tflite \
+	models/lite_transformer_decoder/lite-transformer-decoder-16-c1-2-4.tflite \
+	100

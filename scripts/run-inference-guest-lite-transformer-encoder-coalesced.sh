@@ -1,0 +1,27 @@
+./guest_inference_lite_transformer_encoder_coalesced \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-1.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-2.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-4.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-6.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c2-2.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c2-4.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c2-6.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c3-2.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c3-4.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c3-6.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c4-2.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c4-4.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c4-6.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c5-2.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c5-4.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c5-6.rknn \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-3.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c1-5.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c2-3.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c2-5.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c3-3.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c3-5.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c4-3.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c4-5.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c5-3.tflite \
+	models/lite_transformer_encoder/lite-transformer-encoder-16-c5-5.tflite
