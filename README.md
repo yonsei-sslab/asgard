@@ -350,9 +350,6 @@ sudo ./bin/upgrade_tool rd
 ./bin/adb shell
 reboot loader
 
-# The last method is to reboot the host machine, which will power-cycle the development board.
-reboot
-
 # NOTE: If the same problem persists, please proceed to (3.2) and use the image that was pre-flashed by the authors.
 # NOTE: Please do not hesitate to contact the authors if the development board is stuck in a non-recoverable state.
 ```
@@ -742,8 +739,7 @@ export LD_LIBRARY_PATH=librknnrt/android
 ./bin/adb shell
 reboot
 
-# If the development board gets stuck in a non-recoverable state, please try rebooting the host machine, which will power-cycle the development board.
-reboot
+# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board by follwing Section 5 - Trobuleshooting.
 ```
 
 #### Execution (ASGARD)
@@ -874,8 +870,7 @@ mount -t proc proc /proc && mount -t sysfs sys /sys
 export LD_LIBRARY_PATH=librknnrt/android
 ./guest_inference models/mobilenetv1.rknn
 
-# If the development board gets stuck in a non-recoverable state, please try rebooting the host machine, which will power-cycle the development board.
-reboot
+# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board by follwing Section 5 - Trobuleshooting.
 ```
 
 #### Execution (ASGARD)
@@ -909,4 +904,36 @@ cat output.csv
 
 # Check the numbers in the 'inference and hypercall' column. The numbers are in seconds.
 # This includes the latency for acquiring and releasing the NPU.
+```
+
+## 5. Troubleshooting
+
+If the development board gets into a non-recoverable state, please try to power-cycle the development board:
+```bash
+# In the host machine, run uhubctl.
+sudo uhubctl
+
+# Output: The board is connected to Hub 1-3 Port 3, but it is not listed because it is in a non-recoverable state.
+Current status for hub 1-3 [0451:8442 F8000861FACE, USB 2.10, 6 ports]
+  ...
+  Port 3: 0100 power
+  ...
+
+# Power off Hub 1-3 Port 3
+sudo uhubctl -l 1-3 -p 3 -a off
+
+# After few seconds, power on Hub 1-3 Port 3
+sudo uhubctl -l 1-3 -p 3 -a on
+
+# Check Hub 1-3 Port 3
+sudo uhubctl
+
+# Output: The board is now back online.
+Current status for hub 1-3 [0451:8442 F8000861FACE, USB 2.10, 6 ports]
+  ...
+  Port 3: 0503 power highspeed enable connect [2207:0006 Khadas Edge2 00100029B000DA]
+  ...
+
+# NOTE: Please try to power-cycle the board few more times if the same problem persists.
+# NOTE: Please do not hesitate to contact the authors if this does not fix the problem.
 ```
