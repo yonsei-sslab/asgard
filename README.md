@@ -581,8 +581,8 @@ cd /data/local
 # Print results to the console.
 cat output.csv
 
-# For MobileNetV1 and InceptionV3: Check the numbers in the 'inference only' column. The numbers are in seconds.
-# For SSD and lite transformer models: Check the numbers in the 'inference total' column. The numbers are in seconds.
+# For MobileNetV1 and InceptionV3: Check the numbers in the 'inference only' column. The numbers are in milliseconds (ms).
+# For SSD and lite transformer models: Check the numbers in the 'inference total' column. The numbers are in milliseconds (ms).
 ```
 
 #### Preparation (ASGARD w/ Minimal Enclave Image)
@@ -721,7 +721,7 @@ cd /data/local
 # Print results to the console.
 cat output.csv
 
-# Check the numbers in the 'inference only' column. The numbers are in seconds.
+# Check the numbers in the 'inference only' column. The numbers are in milliseconds (ms).
 # This does not include the latency for acquiring and releasing the NPU.
 ```
 
@@ -781,7 +781,7 @@ cd /data/local
 # Print results to the console.
 cat output.csv
 
-# Check the numbers in the 'inference total' column. The numbers are in seconds.
+# Check the numbers in the 'inference total' column. The numbers are in milliseconds (ms).
 ```
 
 #### Preparation (ASGARD)
@@ -843,6 +843,6 @@ cd /data/local
 # Print results to the console.
 cat output.csv
 
-# Check the numbers in the 'inference and hypercall' column. The numbers are in seconds.
+# Check the numbers in the 'inference and hypercall' column. The numbers are in milliseconds (ms).
 # This includes the latency for acquiring and releasing the NPU.
 ```
