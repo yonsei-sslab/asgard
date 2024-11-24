@@ -314,7 +314,8 @@ cd asgard-buildroot && mkdir files
 cd files && mkdir files
 cd ..
 
-# Move all necessary files to the new directory.
+# Move all necessary files to the new directory. These include:
+# DNN models, user-mode NPU driver, DNN inference apps, and DNN inference app launch scripts.
 cp -r ../assets/models files/files/
 cp -r ../bin/librknnrt files/files/
 cp ../build/guest_inference* files/files/
@@ -327,7 +328,7 @@ cp ../scripts/run-inference-guest* files/files/
 make crosvm_aarch64_virt_rknpu_defconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j $(nproc)
 
-# Check if the files are correctly added to the file system.
+# Check that the files added in Step 1 have been correctly added to the file system.
 ls -al output/target/files
 
 # Check the newly built image and move it to the build directory.
@@ -344,7 +345,7 @@ make clean
 make crosvm_aarch64_virt_rknpu_minimal_defconfig
 make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- -j $(nproc)
 
-# Check if the files are correctly added to the file system.
+# Check that the files added in Step 1 have been correctly added to the file system.
 ls -al output/target/files
 
 # Check the newly built image and move it to the build directory as 'rootfs_minimal.ext4'.
