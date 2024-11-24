@@ -45,11 +45,7 @@ The repository includes multiple git submodules, all of which must be cloned by 
 Due to the large size of the Android source, we include a submodule called `asgard-manifest-*`, which points to all the remaining repositories for the host Android, host kernel, enclave kernel, and CROSVM.
 These can be downloaded by following (1.2), (1.3), and (1.4), which **may take more than a day** depending on the network quality.
 
-***NOTE for evaluators:*** All sources have already been downloaded to our host machine and are available at `~/Workspace/asgard-artifact`. This section is optional (otherwise, please delete the directory with `rm -rf ~/Workspace/asgard-artifact` to free up the space).
-
-### 1.1 Git Submodules *(Optional)*
-
-<details><summary><i>Click to view</i></summary>
+### 1.1 Git Submodules
 
 ```bash
 # If you have already cloned this repository.
@@ -59,15 +55,9 @@ git submodule update --init --recursive
 git clone --recurse-submodules https://github.com/yonsei-sslab/asgard-artifact.git
 ```
 
-</details>
-
-### 1.2 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android *(Optional)*
-
-<details><summary><i>Click to view</i></summary>
+### 1.2 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android
 
 ```bash
-# NOTE: When using a remote connection, consider using terminal multiplexers such as 'tmux', especially in cases of unstable internet connection.
-
 # Install toolchains.
 sudo apt-get update
 sudo apt-get install git-lfs
@@ -96,15 +86,9 @@ cd device/khadas/rk3588
 git lfs pull
 ```
 
-</details>
-
-### 1.3 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest) *(Optional)*
-
-<details><summary><i>Click to view</i></summary>
+### 1.3 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest)
 
 ```bash
-# NOTE: When using a remote connection, consider using terminal multiplexers such as 'tmux', especially in cases of unstable internet connection.
-
 # Create new directory in the main repository and get the source.
 mkdir guest-linux && cd guest-linux
 curl https://storage.googleapis.com/git-repo-downloads/repo-1 > repo
@@ -113,15 +97,9 @@ python3 repo init -u https://github.com/yonsei-sslab/asgard-manifest.git -b gues
 python3 repo sync -c
 ```
 
-</details>
-
-### 1.4 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main) *(Optional)*
-
-<details><summary><i>Click to view</i></summary>
+### 1.4 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main)
 
 ```bash
-# NOTE: When using a remote connection, consider using terminal multiplexers such as 'tmux', especially in cases of unstable internet connection.
-
 # Create new directory in the main repository and get the source.
 mkdir crosvm-android && cd crosvm-android
 curl https://storage.googleapis.com/git-repo-downloads/repo-1 > repo
@@ -130,18 +108,12 @@ python3 repo init -u https://github.com/yonsei-sslab/asgard-manifest.git -b cros
 python3 repo sync -c
 ```
 
-</details>
-
 ## 2. Building Sources *(20 human-minutes + 85 compute-minutes)*
 
 The host Android, host kernel, enclave kernel, CROSVM, and DNN applications must be compiled on the host machine.
 This process is expected to take a total 20 human-minutes and 85 compute-minutes on a machine with Intel i9-12900K CPU (16 physical cores) and 64GB of RAM.
 
-***NOTE for evaluators:*** All sources have already been compiled on our host machine and are available at `~/Workspace/asgard-artifact`. This section is optional.
-
-### 2.1 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android *(Optional; 2 human-minutes + 70 compute-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 2.1 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android *(2 human-minutes + 70 compute-minutes)*
 
 ```bash
 # Create a new directory called 'build' in the main repository.
@@ -167,11 +139,7 @@ cp kernel-5.10/drivers/iommu/rockchip-iommu.ko ../build/rockchip-iommu.ko
 cp kernel-5.10/drivers/iommu/pkvm-rockchip-iommu.ko ../build/pkvm-rockchip-iommu.ko
 ```
 
-</details>
-
-### 2.2 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest) *(Optional; 7 human-minutes + 3 compute-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 2.2 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest) *(7 human-minutes + 3 compute-minutes)*
 
 ```bash
 # NOTE: We assume that the build directory has been created in (2.1).
@@ -208,11 +176,7 @@ cp out/android13-5.10/dist/Image ../build/Image
 cp out/android13-5.10/dist/vmlinux ../build/vmlinux
 ```
 
-</details>
-
-### 2.3 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main) *(Optional; 2 human-minutes + 7 compute-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 2.3 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main) *(2 human-minutes + 7 compute-minutes)*
 
 ```bash
 cd crosvm-android
@@ -229,11 +193,7 @@ ls -al out/target/product/armv8/system/bin/crosvm
 cp out/target/product/armv8/system/bin/crosvm ../build/crosvm
 ```
 
-</details>
-
-### 2.4 [DNN Applications](https://github.com/yonsei-sslab/asgard-tensorflow/tree/main) *(Optional; 7 human-minutes + 5 compute-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 2.4 [DNN Applications](https://github.com/yonsei-sslab/asgard-tensorflow/tree/main) *(7 human-minutes + 5 compute-minutes)*
 
 ```bash
 cd asgard-tensorflow
@@ -279,11 +239,7 @@ cp bazel-bin/asgard/host_inference_native_lite_transformer_encoder_baseline ../b
 cp bazel-bin/asgard/host_inference_native_lite_transformer_decoder_baseline ../build/host_inference_native_lite_transformer_decoder_baseline
 ```
 
-</details>
-
-### 2.5 Miscellaneous Programs *(Optional; 2 human-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 2.5 Miscellaneous Programs *(2 human-minutes)*
 
 ```bash
 # Build NPU-related program.
@@ -301,19 +257,13 @@ make
 cp build/guest_inference_init ../../build/guest_inference_init
 ```
 
-</details>
-
 ## 3. Configuring and Installing the Artifact *(27 human-minutes + 37 compute-minutes)*
 
 We now install the new host image on the development board by following (3.1).
 Then, in (3.2), we use Buildroot to create the enclave root file system image, to which we add DNN models, DNN applications, and user-mode NPU driver to the image, and from which remove the unnecessary binaries.
 Finally, in (3.3), we move all the necessary files to the development board.
 
-***NOTE for evaluators:*** Section (3.1) already has been completed in our setup and is optional (primarily due to buggy development board flashing tool). Sections (3.2) and (3.3) are not optional.
-
-### 3.1 Install New Image on Dev. Board *(Optional; 10 human-minutes + 5 compute-minutes)*
-
-<details><summary><i>Click to view</i></summary>
+### 3.1 Install New Image on Dev. Board *(10 human-minutes + 5 compute-minutes)*
 
 1. Boot the development board into upgrade mode.
 ```bash
@@ -349,14 +299,9 @@ sudo ./bin/upgrade_tool rd
 # Then, after wating for a minute, reboot the development board into upgrade mode.
 ./bin/adb shell
 reboot loader
-
-# NOTE: If the same problem persists, please proceed to (3.2) and use the image that was pre-flashed by the authors.
-# NOTE: Please do not hesitate to contact the authors if the development board is stuck in a non-recoverable state.
 ```
 
 4. The development board should boot with the new host image. After wating for a minute, run `./bin/adb shell` in a terminal window.
-
-</details>
 
 ### 3.2 Build Root File System *(15 human-minutes + 30 compute-minutes)*
 
@@ -542,10 +487,6 @@ The value in the `code` column and the `SUM` row represents the total LoC for th
 Subtract the original TEEvisor’s value from ASGARD’s value, which should be about 2 kLoC.
 
 ### (E4) Verify Enclave Image Size *(10 human-minutes)*
-
-***NOTE for evaluators:*** Table III in the paper reviewed by the NDSS PC contains incorrect numbers for the enclave image size.
-The primary reason for this error is that the table does not reflect the version upgrade of the user-mode NPU driver that we made prior to the paper submission.
-We will notify our shepherd during the paper revision period and update the table with the correct numbers.
 
 ASGARD achieves an enclave image size of 17.411 MB (see Table III), which consists of the kernel and the root file system.
 The experiment involves measuring the size of the kernel and file system images.
@@ -739,7 +680,7 @@ export LD_LIBRARY_PATH=librknnrt/android
 ./bin/adb shell
 reboot
 
-# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board by follwing Section 5 - Trobuleshooting.
+# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board.
 ```
 
 #### Execution (ASGARD)
@@ -870,7 +811,7 @@ mount -t proc proc /proc && mount -t sysfs sys /sys
 export LD_LIBRARY_PATH=librknnrt/android
 ./guest_inference models/mobilenetv1.rknn
 
-# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board by follwing Section 5 - Trobuleshooting.
+# NOTE: If the development board gets stuck in a non-recoverable state, please try to power-cycle the development board.
 ```
 
 #### Execution (ASGARD)
@@ -904,36 +845,4 @@ cat output.csv
 
 # Check the numbers in the 'inference and hypercall' column. The numbers are in seconds.
 # This includes the latency for acquiring and releasing the NPU.
-```
-
-## 5. Troubleshooting
-
-If the development board gets into a non-recoverable state, please try to power-cycle the development board:
-```bash
-# In the host machine, run uhubctl.
-sudo uhubctl
-
-# Output: The board is connected to Hub 1-3 Port 3, but it is not listed because it is in a non-recoverable state.
-Current status for hub 1-3 [0451:8442 F8000861FACE, USB 2.10, 6 ports]
-  ...
-  Port 3: 0100 power
-  ...
-
-# Power off Hub 1-3 Port 3
-sudo uhubctl -l 1-3 -p 3 -a off
-
-# After few seconds, power on Hub 1-3 Port 3
-sudo uhubctl -l 1-3 -p 3 -a on
-
-# Check Hub 1-3 Port 3
-sudo uhubctl
-
-# Output: The board is now back online.
-Current status for hub 1-3 [0451:8442 F8000861FACE, USB 2.10, 6 ports]
-  ...
-  Port 3: 0503 power highspeed enable connect [2207:0006 Khadas Edge2 00100029B000DA]
-  ...
-
-# NOTE: Please try to power-cycle the board few more times if the same problem persists.
-# NOTE: Please do not hesitate to contact the authors if this does not fix the problem.
 ```
