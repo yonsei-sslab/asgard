@@ -450,8 +450,13 @@ diff -r src/rknpu host-android/kernel-5.10/drivers/rknpu
 #### Results
 
 The `diff` command does not produce any output if no differences are found.
-However, in this artifact submission, we have included the ioctl-based performance measurement framework that will be used in the experiments (E5) and (E6).
-The changes **do not introduce any functional changes** (i.e., affect the driver’s original behavior) to the driver.
+
+However, in this artifact submission, we have included our custom performance measurement framework, which will be used in experiments (E5) and (E6).
+This framework **does not introduce any functional changes** to the driver (i.e., affect the driver’s original behavior).
+
+The framework consists of:
+- A component that measures the NPU task completion time using the program counter register (`CNTPCT_EL0`).
+- IOCTL handlers and header definitions to acquire and clear the performance measurement data.
 
 ### (E3) Verify TEEvisor TCB Size *(5 human-minutes)*
 
