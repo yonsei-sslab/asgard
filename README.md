@@ -419,8 +419,7 @@ To verify that we are running the unmodified proprietary secure monitor:
 1. Check that the bootloader (`host-android/u-boot`) is [configured](https://github.com/khadas/u-boot/blob/bb307d6a09d1de5d0fc001584e3f62c0d73bad95/configs/kedge2_defconfig#L16) to [load](https://github.com/khadas/android_rkbin/blob/35c3e2e438d2a6983a958fd2d3a66076112bea23/RKTRUST/RK3588TRUST.ini#L8) the proprietary secure monitor (`host-android/rkbin/bin/rk35/rk3588_bl31_v1.26.elf`). (Unfortunately, this cannot be checked during device runtime.)
 2. In the main repository, run `cmp -l bin/rk3588_bl31_v1.26.elf host-android/rkbin/bin/rk35/rk3588_bl31_v1.26.elf` to compare the two binary files byte to byte.
 
-To verify that we are running the unmodified proprietary user-mode NPU driver:
-1. Run protected DNN inference using the proprietary driver (`bin/librknnrt/linux/librknnrt.so`), which was embedded into the root file system in (3.2), during experiment (E5).
+To verify that we are running the unmodified proprietary user-mode NPU driver, we will run protected DNN inference during experiment (E5) using the proprietary driver (`bin/librknnrt/linux/librknnrt.so`), which was embedded into the root file system in (3.2).
 
 #### Results
 
