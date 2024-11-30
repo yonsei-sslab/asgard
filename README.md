@@ -1,8 +1,10 @@
-# NDSS'25 Fall Artifact #41
+# ASGARD: Protecting On-Device Deep Neural Networks with Virtualization-Based Trusted Execution Environments
 
-### ASGARD: Protecting On-Device Deep Neural Networks with Virtualization-Based Trusted Execution Environments
+This repository contains the artifact for the paper *ASGARD: Protecting On-Device Deep Neural Networks with Virtualization-Based Trusted Execution Environments*, which will appear at the [Network and Distributed System Security (NDSS) Symposium 2025](https://www.ndss-symposium.org/ndss2025).
 
-***Artifact Abstract***—ASGARD is a new on-device deep neural network (DNN) model protection solution based on a virtualization-based trusted execution environment.
+### Artifact Abstract
+
+ASGARD is a new on-device deep neural network (DNN) model protection solution based on a virtualization-based trusted execution environment.
 While the virtual machine abstraction used by ASGARD brings the benefit of strong compatibility with existing proprietary software including NPU drivers and secure monitors at EL3, it introduces both trust computing base (TCB) and run-time overheads.
 ASGARD aggressively minimizes both platform- and application-level TCB overheads, and reduces run-time overheads through our proposed DNN execution planning technique.
 Our evaluation includes (i) a qualitative yet comprehensive security analysis of ASGARD, and (ii) a quantitative analysis of ASGARD's TCB and run-time overheads on our prototype implementation of ASGARD on RK3588S.
