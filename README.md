@@ -534,7 +534,7 @@ The sum of these should be 9.503 MB.
 
 ### (E5) Compare Inference Latency with REE *(30 human-minutes + 10 compute-minutes)*
 
-ASGARD achieves near-zero DNN inference latency overhead compared to that in the REE (see Figures 8 and 9b).
+ASGARD achieves near-zero DNN inference latency overhead compared to that in the REE (see Figure 8b).
 The experiment involves running unprotected DNN inference in the REE and protected inference within the ASGARD enclave, using all six DNN models.
 
 #### Preparation (REE)
@@ -576,7 +576,7 @@ export LD_LIBRARY_PATH=librknnrt/android
 
 #### Results (REE)
 
-The unprotected inference in the REE should exhibit the baseline latency numbers (i.e., white bar only) presented in Figure 8, pKVM column.
+The unprotected inference in the REE should exhibit the latency value shown by the 'REE' bar in Figure 8b.
 
 ```bash
 # Access the development board using adb.
@@ -715,8 +715,8 @@ rm 3.sock
 
 #### Results (ASGARD)
 
-The ASGARD-protected inference with MobileNetV1 and InceptionV3 should exhibit the latency numbers of baseline and overhead added (i.e., white and colored bars added), which is presented in Figure 8, pKVM column.
-The inference with SSD and Lite Transformer models should exhibit the latency numbers of baseline (Fig. 8, pKVM column) and overhead added (Fig. 9b, pKVM column, with exit-coalescing planning enabled).
+The ASGARD-protected inference with MobileNetV1 and InceptionV3 should exhibit the latency value shown by the 'ASGARD w/ Default Planning' bar in Figure 8b.
+The inference with SSD and Lite Transformer models should exhibit the latency value shown by the 'ASGARD w/ Exit-Coalescing Planning' bar in Figure 8b.
 
 ```bash
 # Access the development board using adb.
@@ -732,7 +732,7 @@ cat output.csv
 
 ### (E6) Compare Inference Latency with ShadowNet *(10 human-minutes + 10 compute-minutes)*
 
-ASGARD achieves DNN inference latency overhead that is significantly lower than that of existing REE-offloading approaches (see Figure 5).
+ASGARD achieves DNN inference latency overhead that is significantly lower than that of existing REE-offloading approaches (see Figures 5b and 5c).
 The experiment involves running DNN inference simulating ShadowNet and inference within the ASGARD enclave, using MobileNetV1.
 
 #### Preparation (ShadowNet)
@@ -776,7 +776,7 @@ export LD_LIBRARY_PATH=librknnrt/android
 
 #### Results (ShadowNet)
 
-The inference latency numbers should match that in Figure 5a.
+The inference latency numbers should match that in Figure 5b.
 
 ```bash
 # Access the development board using adb.
@@ -838,7 +838,7 @@ rm 3.sock
 
 #### Results (ASGARD)
 
-The inference latency numbers should match that in Figure 5b.
+The inference latency numbers should match that in Figure 5c.
 
 ```bash
 # Access the development board using adb.
