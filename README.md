@@ -527,10 +527,10 @@ ls -l files/files/librknnrt/linux/librknnrt.so
 
 #### Results
 
-For the kernel image, the `aarch64-linux-gnu-size` command should output 7.907 MB in the `dec` column.
+For the kernel image, the `aarch64-linux-gnu-size` command should output 7.936 MB in the `dec` column.
 
 For the root file system image, we must add the outputs for the C/C++ libraries and linkers (3.870 MB), DNN applications (0.014 and 0.009 MB), and user-mode NPU driver (5.610 MB).
-The sum of these should be 9.504 MB.
+The sum of these should be 9.503 MB.
 
 ### (E5) Compare Inference Latency with REE *(30 human-minutes + 10 compute-minutes)*
 
