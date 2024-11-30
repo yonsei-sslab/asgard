@@ -398,7 +398,7 @@ sudo umount /mnt/rootfs
 ./bin/adb push assets/images /data/local
 ```
 
-## 4. Running Evaluation *(75 human-minutes + 20 compute-minutes)*
+## 4. Running Evaluation *(105 human-minutes + 20 compute-minutes)*
 
 The artifact contains a total of six experiments.
 The first four experiments involve verifying the source code and proprietary binaries used in the artifact, all of which can be executed on the host machine.
@@ -532,7 +532,7 @@ For the kernel image, the `aarch64-linux-gnu-size` command should output 7.936 M
 For the root file system image, we must add the outputs for the C/C++ libraries and linkers (3.870 MB), DNN applications (0.014 and 0.009 MB), and user-mode NPU driver (5.610 MB).
 The sum of these should be 9.503 MB.
 
-### (E5) Compare Inference Latency with REE *(30 human-minutes + 10 compute-minutes)*
+### (E5) Compare Inference Latency with REE *(60 human-minutes + 10 compute-minutes)*
 
 ASGARD achieves near-zero DNN inference latency overhead compared to that in the REE (see Figure 8b).
 The experiment involves running unprotected DNN inference in the REE and protected inference within the ASGARD enclave, using all six DNN models.
