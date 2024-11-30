@@ -493,7 +493,7 @@ Subtract the original TEEvisor’s value from ASGARD’s value, which should be 
 
 ### (E4) Verify Enclave Image Size *(10 human-minutes)*
 
-ASGARD achieves an enclave image size of 17.411 MB (see Table III), which consists of the kernel and the root file system.
+ASGARD achieves an enclave image size of 17.439 MB (see Table III), which consists of the kernel and the root file system.
 The experiment involves measuring the size of the kernel and file system images.
 
 #### Preparation
