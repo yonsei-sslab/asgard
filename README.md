@@ -47,7 +47,7 @@ The repository includes multiple git submodules, all of which must be cloned by 
 Due to the large size of the Android source, we include a submodule called `asgard-manifest-*`, which points to all the remaining repositories for the host Android, host kernel, enclave kernel, and CROSVM.
 These can be downloaded by following (1.2), (1.3), and (1.4), which **may take more than a day** depending on the network quality.
 
-### 1.1 Git Submodules
+### 1.1. Git Submodules
 
 ```bash
 # If you have already cloned this repository.
@@ -57,7 +57,7 @@ git submodule update --init --recursive
 git clone --recurse-submodules https://github.com/yonsei-sslab/asgard-artifact.git
 ```
 
-### 1.2 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android
+### 1.2. [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android
 
 ```bash
 # Install toolchains.
@@ -88,7 +88,7 @@ cd device/khadas/rk3588
 git lfs pull
 ```
 
-### 1.3 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest)
+### 1.3. [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest)
 
 ```bash
 # Create new directory in the main repository and get the source.
@@ -99,7 +99,7 @@ python3 repo init -u https://github.com/yonsei-sslab/asgard-manifest.git -b gues
 python3 repo sync -c
 ```
 
-### 1.4 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main)
+### 1.4. [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main)
 
 ```bash
 # Create new directory in the main repository and get the source.
@@ -115,7 +115,7 @@ python3 repo sync -c
 The host Android, host kernel, enclave kernel, CROSVM, and DNN applications must be compiled on the host machine.
 This process is expected to take a total 20 human-minutes and 85 compute-minutes on a machine with Intel i9-12900K CPU (16 physical cores) and 64GB of RAM.
 
-### 2.1 [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android *(2 human-minutes + 70 compute-minutes)*
+### 2.1. [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android *(2 human-minutes + 70 compute-minutes)*
 
 ```bash
 # Create a new directory called 'build' in the main repository.
@@ -141,7 +141,7 @@ cp kernel-5.10/drivers/iommu/rockchip-iommu.ko ../build/rockchip-iommu.ko
 cp kernel-5.10/drivers/iommu/pkvm-rockchip-iommu.ko ../build/pkvm-rockchip-iommu.ko
 ```
 
-### 2.2 [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest) *(7 human-minutes + 3 compute-minutes)*
+### 2.2. [Enclave Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/guest) *(7 human-minutes + 3 compute-minutes)*
 
 ```bash
 # NOTE: We assume that the build directory has been created in (2.1).
@@ -178,7 +178,7 @@ cp out/android13-5.10/dist/Image ../build/Image
 cp out/android13-5.10/dist/vmlinux ../build/vmlinux
 ```
 
-### 2.3 [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main) *(2 human-minutes + 7 compute-minutes)*
+### 2.3. [CROSVM](https://github.com/yonsei-sslab/asgard-crosvm/tree/main) *(2 human-minutes + 7 compute-minutes)*
 
 ```bash
 cd crosvm-android
@@ -195,7 +195,7 @@ ls -al out/target/product/armv8/system/bin/crosvm
 cp out/target/product/armv8/system/bin/crosvm ../build/crosvm
 ```
 
-### 2.4 [DNN Applications](https://github.com/yonsei-sslab/asgard-tensorflow/tree/main) *(7 human-minutes + 5 compute-minutes)*
+### 2.4. [DNN Applications](https://github.com/yonsei-sslab/asgard-tensorflow/tree/main) *(7 human-minutes + 5 compute-minutes)*
 
 ```bash
 cd asgard-tensorflow
@@ -241,7 +241,7 @@ cp bazel-bin/asgard/host_inference_native_lite_transformer_encoder_baseline ../b
 cp bazel-bin/asgard/host_inference_native_lite_transformer_decoder_baseline ../build/host_inference_native_lite_transformer_decoder_baseline
 ```
 
-### 2.5 Miscellaneous Programs *(2 human-minutes)*
+### 2.5. Miscellaneous Programs *(2 human-minutes)*
 
 ```bash
 # Build NPU-related program.
@@ -266,7 +266,7 @@ Then, in (3.2), we use Buildroot to create the enclave root file system image.
 We add DNN models, DNN applications, and the user-mode NPU driver to the image, and remove unnecessary binaries from the image.
 Finally, in (3.3), we transfer all the necessary files to the development board.
 
-### 3.1 Install New Image on Dev. Board *(10 human-minutes + 5 compute-minutes)*
+### 3.1. Install New Image on Dev. Board *(10 human-minutes + 5 compute-minutes)*
 
 1. Boot the development board into upgrade mode.
 ```bash
@@ -306,7 +306,7 @@ reboot loader
 
 4. The development board should boot with the new host image. After wating for a minute, run `./bin/adb shell` in a terminal window.
 
-### 3.2 Build Root File System *(15 human-minutes + 30 compute-minutes)*
+### 3.2. Build Root File System *(15 human-minutes + 30 compute-minutes)*
 
 1. Add necessary files to the root file system image.
 ```bash
@@ -380,7 +380,7 @@ sudo rm /mnt/rootfs/usr/lib/libstdc++.so.6.0.29-gdb.py
 sudo umount /mnt/rootfs
 ```
 
-### 3.3 Move Files to Dev. Board *(2 human-minutes + 2 compute-minute)*
+### 3.3. Move Files to Dev. Board *(2 human-minutes + 2 compute-minute)*
 
 ```bash
 # In the host machine, go to the main repository.
