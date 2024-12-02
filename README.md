@@ -39,7 +39,7 @@ We outline below how to build our prototype, and how to reproduce our quantitati
 ### Prerequisites
 
 - A 64-bit x86 host machine with 20.04 LTS installed, at least 1TB of free disk space, 64GB of RAM, and preferably a multi-core CPU.
-- A [Khadas Edge2 development board](https://www.khadas.com/edge2) with 16GB (or more) of RAM.
+- A [Khadas Edge2 development board](https://www.khadas.com/edge2) with at least 16GB of RAM.
 
 ## 1. Downloading Sources
 
@@ -262,8 +262,9 @@ cp build/guest_inference_init ../../build/guest_inference_init
 ## 3. Configuring and Installing the Artifact *(27 human-minutes + 37 compute-minutes)*
 
 We now install the new host image on the development board by following (3.1).
-Then, in (3.2), we use Buildroot to create the enclave root file system image, to which we add DNN models, DNN applications, and user-mode NPU driver to the image, and from which remove the unnecessary binaries.
-Finally, in (3.3), we move all the necessary files to the development board.
+Then, in (3.2), we use Buildroot to create the enclave root file system image.
+We add DNN models, DNN applications, and the user-mode NPU driver to the image, and remove unnecessary binaries from the image.
+Finally, in (3.3), we transfer all the necessary files to the development board.
 
 ### 3.1 Install New Image on Dev. Board *(10 human-minutes + 5 compute-minutes)*
 
@@ -306,8 +307,6 @@ reboot loader
 4. The development board should boot with the new host image. After wating for a minute, run `./bin/adb shell` in a terminal window.
 
 ### 3.2 Build Root File System *(15 human-minutes + 30 compute-minutes)*
-
-Buildroot is used to create the enclave root file system image.
 
 1. Add necessary files to the root file system image.
 ```bash
@@ -422,7 +421,7 @@ To verify that we are running the unmodified proprietary secure monitor:
 1. Check that the bootloader (`host-android/u-boot`) is [configured](https://github.com/khadas/u-boot/blob/bb307d6a09d1de5d0fc001584e3f62c0d73bad95/configs/kedge2_defconfig#L16) to [load](https://github.com/khadas/android_rkbin/blob/35c3e2e438d2a6983a958fd2d3a66076112bea23/RKTRUST/RK3588TRUST.ini#L8) the proprietary secure monitor (`host-android/rkbin/bin/rk35/rk3588_bl31_v1.26.elf`). (Unfortunately, this cannot be checked during device runtime.)
 2. In the main repository, run `cmp -l bin/rk3588_bl31_v1.26.elf host-android/rkbin/bin/rk35/rk3588_bl31_v1.26.elf` to compare the two binary files byte to byte.
 
-To verify that we are running the unmodified proprietary user-mode NPU driver, we will run protected DNN inference during experiment (E5) using the proprietary driver (`bin/librknnrt/linux/librknnrt.so`), which was embedded into the root file system in (3.2).
+To verify that we are running the unmodified proprietary user-mode NPU driver, we will run protected DNN inference during the experiment (E5) using the proprietary driver (`bin/librknnrt/linux/librknnrt.so`), which was embedded into the root file system in (3.2).
 
 #### Results
 
@@ -459,7 +458,7 @@ This framework **does not introduce any functional changes** to the driver (i.e.
 
 The framework consists of:
 - A component that measures the NPU task completion time using the program counter register (`CNTPCT_EL0`).
-- IOCTL handlers and header definitions to acquire and clear the performance measurement data.
+- Input/output control (IOCTL) call handlers and header definitions to acquire and clear the task completion time.
 
 ### (E3) Verify TEEvisor TCB Size *(5 human-minutes)*
 
@@ -578,7 +577,7 @@ export LD_LIBRARY_PATH=librknnrt/android
 
 #### Results (REE)
 
-The unprotected inference in the REE should exhibit the latency value shown by the 'REE' bar in Figure 8b.
+The unprotected inference in the REE should exhibit the latency value shown by the *REE* bar in Figure 8b.
 
 ```bash
 # Access the development board using adb.
@@ -717,8 +716,8 @@ rm 3.sock
 
 #### Results (ASGARD)
 
-The ASGARD-protected inference with MobileNetV1 and InceptionV3 should exhibit the latency value shown by the 'ASGARD w/ Default Planning' bar in Figure 8b.
-The inference with SSD and Lite Transformer models should exhibit the latency value shown by the 'ASGARD w/ Exit-Coalescing Planning' bar in Figure 8b.
+The ASGARD-protected inference with MobileNetV1 and InceptionV3 should exhibit the latency value shown by the *ASGARD w/ Default Planning* bar in Figure 8b.
+The inference with SSD and Lite Transformer models should exhibit the latency value shown by the *ASGARD w/ Exit-Coalescing Planning* bar in Figure 8b.
 
 ```bash
 # Access the development board using adb.
