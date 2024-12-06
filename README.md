@@ -54,7 +54,7 @@ These can be downloaded by following (1.2), (1.3), and (1.4), which **may take m
 git submodule update --init --recursive
 
 # If you have not yet cloned this repository.
-git clone --recurse-submodules https://github.com/yonsei-sslab/asgard-artifact.git
+git clone --recurse-submodules https://github.com/yonsei-sslab/asgard.git
 ```
 
 ### 1.2. [Host Kernel](https://github.com/yonsei-sslab/asgard-linux/tree/host) and Android
